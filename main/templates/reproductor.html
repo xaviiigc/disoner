@@ -1,0 +1,49 @@
+{% load main_extras %}
+{% load staticfiles %}
+
+<li {% if pagina == 6 %} class="single-cancion" {%endif%} data-id="{{cancion.id}}">
+	<img src="http://disoner.com/static/fotos_canciones/{{cancion.imagen}}" data-href="http://disoner.com/cancion/{{cancion.id}}" class="enlace"/>
+	<span data-href="http://disoner.com/perfil/{{cancion.autor.slug}}" class="enlace cancion-autor">{{cancion.autor}}</span>
+	<a href="http://disoner.com/static/canciones/{{cancion.cancion}}" title="{{cancion.nombre}}" class="link-soundmanager">{{cancion.nombre}}</a>
+
+	<div class="controls control-pega">
+	   <div class="statusbar">
+	    <div class="loading" style="width: 100%;"></div>
+	    <div class="position" style="width: 0%;"></div>
+	   </div>
+	 </div>
+
+	<div class="timing2">
+		<span class="sm2_total">{% secondsToTime cancion.segundos %}</span>
+	</div>
+	{% if pagina == 6 %}
+		<div class="descripcion">
+			 <p>{{cancion.descripcion}}</p> 
+		</div>
+	{% endif %}
+	<div class="botones-cancion">
+		<button class="btn btn-small mg {% isLiked cancion.id session %}" data-id="{{cancion.id}}"><i class="icon-thumbs-up"></i> <span id="likes-{{cancion.id}}">{{cancion.getLikes}}</span></button>
+		<button class="btn btn-small btn_comentarios" data-id="{{cancion.id}}"><i class="icon-comment"></i> {{cancion.getComentarios}}</button>
+		<button class="btn btn-small elegir-lista" data-id="{{cancion.id}}"><i class="icon-list"></i></button>
+		<div class="listas-tooltip" data-id="{{cancion.id}}"><img src="{% static 'img/ajax-loader.gif' %}" /></div>
+		<button class="btn btn-small compartir-cancion" data-id="{{cancion.id}}"><i class="icon-retweet"></i> {{cancion.getCompartida}}</button>
+			
+		<!-- editar/borrar perfil propio-->
+		{% if session == user_info.id %}
+		{% if session == cancion.autor.id %}<button href="#" class="btn btn-small editar-cancion" data-toggle="modal" data-id="{{cancion.id}}" data-target="#popup-subir-cancion"><i class="icon-pencil"></i></button>{% endif %}
+		<a href="/borrar-cancion/{{cancion.id}}" class="btn"><i class="icon-trash"></i></a>
+		{% endif %}
+	</div>
+	<span class="tag genero-cancion enlace" data-href="http://disoner.com/descubre/{{cancion.genero}}">{{cancion.genero}}</span>
+	<abbr class="timeago">{{cancion.fecha_subida}}</abbr>
+
+	<div style="{% if pagina != 6 %} display: none; {% endif %}" class="comentarios" data-cancion="{{cancion.id}}">
+		{% comentariosCancion cancion.id yo%}
+		<form class="form-publicar-comentario" data-id="{{cancion.id}}">
+    		<textarea name="texto-comentario" class="texto-comentario" maxlength="175"></textarea>
+    		<input type="hidden" name="id-cancion-comentario" value="{{cancion.id}}" />
+    		<button class="btn btn-primary publicar-comentario" data-id="{{cancion.id}}"> Publicar </button>
+    		<!--<span class="charsleft alignleft">220</span>-->
+		</form>
+	</div>
+</li>

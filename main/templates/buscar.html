@@ -1,0 +1,28 @@
+{% load staticfiles %}
+
+ <div id="resultados-usuarios">
+    <span>Usuarios</span>
+    {% for u in usuarios %}
+	    <a href="http://disoner.com/perfil/{{u.slug}}">
+	        <img src="{% static 'fotos_perfil/' %}{{u.imagen}}" />
+	        <span>{{u.nombre}}</span>
+	    </a>
+	{% empty %}
+		<p> No hay usuarios con estos terminos</p>
+    {% endfor %}
+</div>
+<div id="resultados-canciones">
+    <span>Canciones</span>
+    {% for c in canciones %}
+	    <a href="http://disoner.com/cancion/{{c.id}}">
+	        <img src="{% static 'fotos_canciones/' %}{{c.imagen}}" />
+	        <span>{{c.nombre}}</span>
+	    </a>
+	{% empty %}
+		<p> No hay canciones con estos terminos</p>
+    {% endfor %}
+</div>
+
+<a class="alert alert-info enlace" href="http://disoner.com/buscar/{{keyword}}">
+	Ver más ...
+</a>

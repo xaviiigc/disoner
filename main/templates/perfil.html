@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+{% block titulo %} Perfil - Disoner {% endblock titulo %}
+{% block bodyclass %}perfil{% endblock bodyclass %}
+
+{% block perfil_cabecera %}
+	{% include "cabecera.html" %}
+{% endblock perfil_cabecera %}
+
+{% block perfil %}
+    <div id="perfil">
+        {% if user_info.id == yo.id %}
+            {% if yo.confirmado == 0 %}
+                <div class="alert alert-error">
+                    <p>Tu email no está confirmado.</p>
+                </div>
+            {% endif %}
+        {% endif %}
+        <ul class="playlist">
+        	{% for cancion in perfil_canciones %}
+        		{% include "reproductor.html" %}
+        	{% endfor %}
+        </ul>
+        {% if perfil_canciones|length >= 7 %}
+            <a href="#" class="alert alert-info" id="cargar-mas-canciones" data-now="7" data-next="14">Cargar más canciones</a>
+        {% endif %}
+    </div>
+{% endblock perfil %}
+
+{% block perfil_sidebar %}
+    <div id="sidebar">
+        {% include "sidebar.html" %}
+    </div>
+{% endblock perfil_sidebar %}
+
+{% block scripts %}
+    <script type="text/javascript">
+        pagina_base = false;
+        $("body").backstretch([ "{% static 'fotos_perfil/' %}{{user_info.fondo}}" ], {duration: 0, fade: 0});
+    </script>
+{% endblock scripts %}

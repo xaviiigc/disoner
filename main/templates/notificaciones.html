@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+{% block titulo %} Notificaciones - Disoner {% endblock titulo %}
+{% block bodyclass %}notificaciones{% endblock bodyclass %}
+
+{% block perfil_cabecera %}
+	{% include "cabecera.html" %}
+{% endblock perfil_cabecera %}
+
+{% block perfil %}
+<div id="perfil">
+	<h2> Notificaciones </h2>
+	<table class="table table-hover">
+	    <tbody>
+	    	{% for n in notificaciones %}
+		    	<tr class="{% if n.leido == 0 %} warning {% endif %}" >
+				    <td><a href="{{n.sitio}}" {% if n.sitio == "" %} class="notificacion-privados" data-target="#popup-privados" data-toggle="modal" {% endif %}>{{n.notificacion}}</a></td>
+			    </tr>
+			{% empty %}
+				<tr>
+				    <td>No tienes notificaciones, parece ser que tus amigos no te quieren.</td>
+			    </tr>
+		    {% endfor %}
+	    </tbody>
+	</table>
+</div>
+{% endblock perfil %}
+
+{% block perfil_sidebar %}
+	<div id="sidebar">
+		{% include "sidebar.html" %}
+	</div>
+{% endblock perfil_sidebar %}
+
+{% block scripts %}
+<script type="text/javascript">
+pagina_base = false;
+$("body").backstretch([ "{% static 'fotos_perfil/' %}{{user_info.fondo}}" ], {duration: 0, fade: 0});
+</script>
+{% endblock scripts %}

@@ -1,0 +1,33 @@
+{% load staticfiles %}
+<div id="actualizar-navegador">
+    <div id="image"><img src="{% static 'img/errores/ship.jpg' %}"></div>
+    <h1>TU NAVEGADOR NO ES COMPATIBLE</h1>
+    <h2>La tecnología ha avanzado! No te quedes atrás. </h2>
+
+    <div id="navegadores">
+        <a href="http://www.opera.com/">
+            <div id="opera">
+                <img class="image_searcher" src="{% static 'img/errores/opera.png' %}">
+                <h3>Opera 9+</h3>
+            </div>
+        </a>
+        <a href="http://www.mozilla.org/es-ES/firefox/">
+            <div id="firefox">
+                <img class="image_searcher" src="{% static 'img/errores/firefox.png' %}">
+                <h3>Firefox 19+</h3>
+            </div>
+        </a>
+        <a href="http://www.google.com/intl/es/chrome/browser/">
+            <div id="chrome">
+                <img class="image_searcher" src="{% static 'img/errores/chrome.png' %}">
+                <h3>Google Chrome</h3>
+            </div>
+        </a>
+        <a href="http://windows.microsoft.com/en-us/internet-explorer/download-ie">
+            <div id="explorer">
+                <img class="image_searcher" src="{% static 'img/errores/iexplore.png' %}">
+                <h3>Internet Explorer 9+</h3>
+            </div>
+        </a>
+    </div>
+</div>

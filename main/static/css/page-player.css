@@ -1,0 +1,329 @@
+/*
+
+ SoundManager 2: "page as playlist" example
+ ------------------------------------------
+ http://schillmania.com/projects/soundmanager2/
+
+*/
+
+.spectrum-container {
+ display:none;
+}
+
+ul.use-spectrum li.sm2_playing .spectrum-container {
+ position:absolute;
+ left:0px;
+ top:0px;
+ margin-left:-266px;
+ margin-top:-1px;
+ display:block;
+ background-color:#5588bb;
+ border:1px solid #99ccff;
+ border-radius:4px;
+}
+
+ul.use-spectrum .spectrum-box {
+ position:relative;
+ width:255px;
+ font-size:1em;
+ padding:2px 0px;
+ height:1.2em;
+ overflow:hidden;
+}
+
+ul.use-spectrum .spectrum-box .spectrum {
+ position:absolute;
+ left:0px;
+ top:-2px;
+ margin-top:20px;
+ display:block;
+ font-size:1px;
+ width:1px;
+ height:1px; /* set to 50px for a thick line, 1px for a thin line, etc. */
+ overflow:hidden;
+ background-color:#fff;
+}
+
+ul.playlist {
+ list-style-type:none;
+ margin:0px;
+ padding:0px;
+
+}
+
+ul.playlist li {
+	/* assume all items will be sounds rather than wait for onload etc. in this example.. may differ for your uses. */
+	position:relative;
+	display:block;
+	color:#666;
+	border:none;
+	-webkit-transition-property: hover;
+	-webkit-transition: background-color 0.15s ease-in-out;
+	-moz-transition: background-color 0.15s linear 0s; /* firefox 4 */
+	-o-transition-property: background-color; /* opera 10.5 */
+	-o-transition-duration: 0.15s;
+
+
+	/**/
+	width: 100%;
+	min-height: 150px;
+	margin-bottom: 25px;
+}
+
+ul.playlist li a {
+ display:block;
+ text-decoration:none;
+ font-weight:normal;
+ color:#000;
+ font-size:100%;
+ outline:none;
+ position:relative;
+ z-index:2;
+}
+
+ul.playlist li a.link-soundmanager {
+	position: absolute;
+    height: 70px;
+    left: 144px;
+    width: 595px;
+    font-size: 22px;
+}
+
+ul.playlist li.sm2_playing,
+ul.playlist li.sm2_paused,
+ul.playlist li.sm2_playing a {
+ color:#000;
+ border-radius:3px;
+}
+
+ul.playlist li:hover {
+
+}
+
+
+ul.playlist li:hover a {
+ color:#333;
+}
+
+ul.playlist li.sm2_playing .link-soundmanager {
+ 	color: #000000 !important;
+    height: 26px;
+    width: 520px;
+}
+
+ul.playlist li.sm2_paused {
+ background-color:#999;
+}
+
+ul.playlist li.sm2_playing:hover a,
+ul.playlist li.sm2_paused a {
+
+}
+
+ul.playlist li .controls {
+ display:none;
+}
+
+ul.playlist .sm2_playing .control-pega{
+	display: none;
+}
+
+ul.playlist li .control-pega{
+	display: block;
+    top: 65px;
+    left: 144px;
+    position: absolute !important;
+}
+
+ul.playlist li .peak,
+ul.playlist.use-peak li .peak {
+ display:none;
+ position:absolute;
+ top:0.55em;
+ right:0.5em;
+}
+
+ul.playlist li.sm2_playing .controls,
+ul.playlist li.sm2_paused .controls {
+    display: block;
+}
+
+ul.playlist.use-peak li.sm2_playing .peak,
+ul.playlist.use-peak li.sm2_paused .peak {
+ display:inline;
+ display:inline-block;
+}
+
+ul.playlist.use-peak li .peak {
+ display:none; /* IE 7 */
+}
+
+ul.playlist li.sm2_paused .controls {
+ background-color:#666;
+}
+
+ul.playlist li:hover .controls .statusbar {
+ position:relative;
+ cursor: pointer;
+}
+
+ul.playlist li.sm2_paused .controls .statusbar {
+ background-color:#ccc;
+}
+
+ul.playlist li .controls {
+ position:relative;
+ margin-top:0.25em;
+ margin-bottom:0.25em;
+ width: 570px;
+ float: left;
+}
+
+ul.playlist li .controls .statusbar {
+ position:relative;
+ height:0.5em;
+ background-color:#ccddff;
+ border:2px solid #fff;
+ border-radius:25px;
+ overflow:hidden;
+ cursor:pointer;
+ height: 20px;
+}
+
+ul.playlist li .controls.dragging .statusbar {
+ cursor: pointer;
+}
+
+ul.playlist li .controls .statusbar .position,
+ul.playlist li .controls .statusbar .loading,
+ul.playlist li .controls .statusbar .annotation {
+ position:absolute;
+ left:0px;
+ top:0px;
+ height:20px;
+}
+
+ul.playlist li .controls .statusbar .position {
+ background-color:#336699;
+ 
+}
+
+ul.playlist li.sm2_playing .position,
+ul.playlist li.sm2_paused .position{
+	border-right:3px solid #336699;
+	border-radius:3px;
+}
+
+ul.playlist li.sm2_paused .controls .statusbar .position {
+ background-color:#666;
+ border-color:#666;
+}
+
+ul.playlist li .controls .statusbar .loading {
+ background-color:#eee;
+}
+
+ul.playlist li .controls .statusbar .position,
+ul.playlist li .controls .statusbar .loading {
+ width:0px;
+}
+
+ul.playlist li.sm2_playing a.sm2_link,
+ul.playlist li.sm2_paused a.sm2_link {
+ margin-right:4.5em; /* room for timing stuff */
+}
+
+ul.playlist li .timing,
+ul.playlist .timing2 {
+	background-color: #5588BB;
+    border: 1px solid #99CCFF;
+    border-radius: 4px 4px 4px 4px;
+    display: none;
+    font-size: 10px;
+    height: 18px;
+    padding: 3px 5px;
+    position: absolute;
+    right: 593px;
+    top:99px;
+}
+
+ul.playlist .timing2{display: block; color: #fff;}
+
+ul.playlist.use-peak li .timing {
+ right:4.25em;
+}
+
+ul.playlist li:hover .timing {
+ z-index:2;
+}
+
+ul.playlist li .timing div.sm2_timing {
+ margin:0px;
+ padding:0px;
+ margin-top:-1em;
+}
+
+ul.playlist li.sm2_playing .timing,
+ul.playlist li.sm2_paused .timing {
+ display:block;
+}
+
+ul.playlist li.sm2_paused .timing .sm2_position {
+ text-decoration:blink; /* hee hee. first actual appropriate use? :D */
+}
+
+ul.playlist li.sm2_paused .timing,
+ul.playlist.use-peak li.sm2_paused .peak {
+ background-color:#888;
+ border-color:#ccc;
+}
+
+/* peak data */
+
+/* ul.playlist ... */
+
+ul.playlist.use-peak li .peak {
+ display:none;
+ zoom:1;
+ border:1px solid #99ccff;
+ padding:2px;
+ height:0.55em;
+ border-radius:4px;
+ background-color:#5588bb;
+ width:0.8em;
+ height:0.55em;
+ margin-top:-3px;
+}
+
+ul.playlist.use-peak li .peak-box {
+ position:relative;
+ width:100%;
+ height:0.55em;
+ overflow:hidden;
+}
+
+ul.playlist li .peak .l,
+ul.playlist li .peak .r {
+ position:absolute;
+ left:0px;
+ top:0px;
+ width:7px;
+ height:50px;
+ background:#fff;
+ border:1px solid #fff;
+ border-radius:1px;
+ margin-top:1em;
+}
+
+ul.playlist li .peak .l {
+ margin-right:1px;
+}
+
+ul.playlist li .peak .r {
+ left:10px;
+}
+
+#control-template {
+ display:none;
+}
+

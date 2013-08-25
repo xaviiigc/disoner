@@ -1,0 +1,69 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+{% block titulo %} Editar Perfil - Disoner {% endblock titulo %}
+{% block bodyclass %}editar-perfil{% endblock bodyclass %}
+
+{% block cabecera %}{% endblock cabecera %}
+
+
+{% block perfil_cabecera %}
+	{% include "cabecera.html" %}
+{% endblock perfil_cabecera %}
+
+{% block perfil %}
+    <div id="perfil">
+    	<form id="formulario-editarPerfil" method="post" class="form-horizontal form-responsive" enctype="multipart/form-data">{% csrf_token %}
+    		<div id="resultados"></div>
+            <div class="field">
+                <label for="id_nombre">Nombre:</label>
+                <input id="id_nombre" maxlength="100" name="nombre" type="text" value="{{yo.nombre}}">
+            </div>
+    		<div class="field">
+                <label for="id_email">Email:</label>
+                <input id="id_email" maxlength="75" name="email" type="text" value="{{yo.email}}">
+            </div>
+            <div class="field">
+                <label for="id_pais">País:</label>
+                <input id="id_pais" maxlength="200" name="pais" type="text" value="{{yo.pais}}">
+            </div>
+            {% if yo.tipo_cuenta.id != 1 %}
+            <div class="field">
+                <label>Fondo</label>
+                <input id="id_fondo" name="fondo" type="file" value="Escoger fondo">
+            </div>
+            {% endif %}
+            <div class="field">
+                <label for="id_biografia">Estado:</label>
+                <textarea id="id_biografia" name="biografia" rows="5" maxlength="175">{{yo.biografia}}</textarea>
+                <span class="charsleft">175</span>
+            </div>
+            <div class="field">
+                <label for="id_gustos">Gustos:</label>
+                <input id="id_gustos" maxlength="200" name="gustos" type="text" value="{{yo.gustos}}">
+            </div>
+    		<input type="submit" value="Guardar" class="btn btn-primary">
+    	</form>	
+    </div>
+{% endblock perfil %}
+
+{% block perfil_sidebar %}
+    <div id="sidebar">
+    	{% include "sidebar.html" %}
+    </div>
+{% endblock perfil_sidebar %}
+
+{% block scripts %}
+<script type="text/javascript">
+pagina_base = false;
+$("body").backstretch([ "{% static 'fotos_perfil/' %}{{user_info.fondo}}" ], {duration: 0, fade: 0});
+$('#id_gustos').magicSuggest({
+    id: 'ms1',
+    maxSelection: 5,
+    required: true,
+    name: 'gustos',
+    data: '{{yo.gustos}},{{suggest_values}}'
+
+});
+</script>
+
+{% endblock scripts %}

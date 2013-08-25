@@ -1,0 +1,6 @@
+{% load main_extras %}
+{% load staticfiles %}
+
+{% for cancion in canciones %}
+	{% include "reproductor.html" %}
+{% endfor %}

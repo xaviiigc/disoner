@@ -1,0 +1,144 @@
+{% extends "base.html" %}
+
+{% block titulo %} FAQ - Disoner {% endblock titulo %}
+{% block bodyclass %}faq{% endblock bodyclass %}
+
+{% block cabecera %}{% endblock cabecera %}
+
+
+
+{% block perfil %}
+<div id="perfil">
+	<div id="pagina-1" class="pagina-faq active">
+		<h3>Subir una canción</h3>
+		<p>Para subir una canción tienes que dirigirte al menú. En el apartado de Música verás la opción de "Subir canción". Una vez hagas clic sobre "Subir canción" se desplegará un <i>pop-up</i>.</p>
+		<img src="/static/img/faq/subir-cancion-1.jpg" />
+		<p>En este <i>pop-up</i> verás el tiempo que te queda.</p>
+		<p>Si te queda espacio, tienes que hacer clic sobre "Elegir canción". Se abrira una ventana para que selecciones el fichero MP3 de tu ordenador que quieres subir. </p>
+		<p>Cuando se haya cargado verás una pantalla como está: </p>
+		<img src="/static/img/faq/subir-cancion-2.jpg" />
+		<p>Aquí tendrás que rellenar los campos de información de la canción. El título y el género son obligatorios. La descripción es voluntaria. </p>
+		<p>La imagen tampoco es obligatoria, si no pones imagen se te asignará la foto por defecto.</p>
+		<p>Una vez rellenes todos los campos, haz click sobre "Guardar"</p>
+	</div>
+	<div id="pagina-2" class="pagina-faq">
+		<h3>Canciones</h3>
+		<p>Puedes realizar varias acciones sobre las canciones. Hacer "me gusta", comentar la canción, compartirla, y añadirla a una lista.</p>
+		<img src="/static/img/faq/canciones-1.jpg" />
+		<p>Si no tienes ninguna lista, puedes crearla directamete desde aquí. No puedes añadir una canción dos veces a la misma lista.</p>
+		<p>Para evitar SPAM, tampoco puedes compartir dos veces la misma canción.</p>
+		<p>Si es una canción tuya, al lado de estos botones verás dos más, el de editar y el de eliminar.</p>
+		<p>Para hacer "play" en una canción. Simplemente haz clic sobre el nombre o la barra de progreso. Si lo que quieres es hacer pausa, haz clic sobre el nombre de la canción.</p>
+		<img src="/static/img/faq/canciones-2.jpg" />
+	</div>
+	<div id="pagina-3" class="pagina-faq">
+		<h3>Perfil</h3>
+		<p>El perfil es la página que tiene cada usuario para mostrar sus canciónes, datos o estadísticas. En el perfil puedes ver los fans, amigos y canciones que tiene cada usuario.</p>
+		<img src="/static/img/faq/perfil-1.jpg" />
+		<p>Si quieres cambiar tu foto de perfil, solo hace falta que pongas el cursor sobre la imagen , y aparecerá una botón que dice: "Subir foto". Haces clic en este botón, y seleccionas la imagen de tu ordenador que quieras subir</p>
+		<p>También puedes ver a la izquierda del perfil, la puntuación media de cada usuario.</p>
+		<p>Si quieres estadísticas más detalladas, puedes mirar un poco más abajo, verás los "me gusta" totales, los de hoy y los del último mes. </p>
+		<p>También puedes ver la información sobre la puntuación, visitas y reproducciones.</p>
+		<img src="/static/img/faq/perfil-2.jpg" />
+	</div>
+	<div id="pagina-4" class="pagina-faq">
+		<h3>Recomendados</h3>
+		<p>En recomendados aparecen perfiles que en base a tus gustos podrían interesarte.</p>
+		<img src="/static/img/faq/recomendados-1.jpg" />
+	</div>
+	<div id="pagina-5" class="pagina-faq">
+		<h3>Publicidad</h3>
+		<p>La publicidad se muestra en el sidebar. Toda la publicidad que ponemos en Disoner es sobre música, conciertos, eventos musicales, etc... Si te interesa contratar el espacio publicitario escribenos un email a <a href="mailto:info@disoner.com">info@disoner.com</a></p>
+		<img src="/static/img/faq/publicidad-1.jpg" />
+	</div>
+	<div id="pagina-6" class="pagina-faq">
+		<h3>Mensajes privados</h3>
+		<p>Los mensajes privados son conversaciones privadas entre dos usuarios. Para ver los mensajes privados ves a cualquier perfil. Y haz clic en el botón de mensajes que hay en la cabecera.</p>
+		<p>Se desplegará un <i>pop-up</i> con todos tus mensajes recibidos. Abajo, verás botón para ver los enviados. </p>
+		<img src="/static/img/faq/privados-1.jpg" />
+		<p>Si quieres enviar un nuevo mensaje privado haz clic sobre el botón de "Nuevo" que verás en el pie del <i>pop-up</i>. </p>
+		<p>A continuación selecciona el destinatario, empieza a escribir y se desplegará una lista de sugerencias. Haz click sobre el usuario que quieras y escribe el mensaje. </p>
+		<img src="/static/img/faq/privados-2.jpg" />
+	</div>
+	<div id="pagina-7" class="pagina-faq">
+		<h3>Listas de reproducción</h3>
+		<p>Para ver las listas de reproducción que tienes, tienes que ir a "Listas de reproducción" dentro de "Música" de la barra de menú.</p>
+		<img src="/static/img/faq/listas-1.jpg" />
+		<p>En esta página aparecerán tus listas de reproducción. Haz click en alguna y verás todas las canciones que tienes dentro. </p>
+		<p>Si haces play en una canción seguirá sonando la siguiente hasta que acabe la lista. </p>
+		<p>Si quieres editar la lista, verás el botón arriba a la derecha. Podrás quitar canciones, cambiar el nombre a la lista o eliminarla. </p>
+		<img src="/static/img/faq/listas-2.jpg" />
+	</div>
+	<div id="pagina-8" class="pagina-faq">
+		<h3>Descubre</h3>
+		<p>En descubre aparecerán canciones parecidas a tus gustos y que podrían gustarte. También a la izquierdas verás una barra de navegación con todos los géneros y sub-géneros.</p>
+		<p>Haciendo click sobre ellos podrás encontrar nuevas canciones. </p>
+		<img src="/static/img/faq/descubre-1.jpg" />
+	</div>
+	<div id="pagina-9" class="pagina-faq">
+		<h3>Ranking</h3>
+		<p>En ranking podrás ver las mejores canciones y los mejores artistas. </p>
+		<p>Por defecto aparecerán las mejores canciones y artistas de todos los géneros. Si quieres concretar un genero puedes hacerlo haciendo clic sobre el género que quieras del sidebar</p>
+		<p>Para cambiar de canciones a autores, puede hacerse con el botón que hay arriba a la derecha.</p>
+		<img src="/static/img/faq/ranking-1.jpg" />
+	</div>
+	<div id="pagina-10" class="pagina-faq">
+		<h3>Notificaciones</h3>
+		<p>En la página de notificaciones encontrarás todas las notificaciones que tienes. Quien te ha agregado como amigo, los comentarios, los "me gusta", etc...</p>
+		<p>Si haces clic sobre la notificación te llevará al sitio donde se ha producido la acción. </p>
+		<img src="/static/img/faq/notificaciones-1.jpg" />
+	</div>
+	<div id="pagina-11" class="pagina-faq">
+		<h3>Editar perfil</h3>
+		<p>En "editar perfil" encontrarás la información principal de tu cuenta y podrás cambiarla.</p>
+		<p>Edita los cambios que creas oportuno y haz clic en "Guardar" para completar los cambios.</p>
+		<p>Si eres usuario premium, pro o basic, verás un campo para cambiar el fondo de pantalla. El fondo de pantalla debe pesar como máximo 600KB</p>
+		<img src="/static/img/faq/editar-perfil-1.jpg" />
+	</div>
+	<div id="pagina-12" class="pagina-faq">
+		<h3>Privacidad</h3>
+		<p>En el apartado de "Privacidad" puedes configurar cuando quieres que te lleguen los emails.</p>
+		<img src="/static/img/faq/privacidad-1.jpg" />
+	</div>
+	<div id="pagina-13" class="pagina-faq">
+		<h3>Premium</h3>
+		<p>Hay tres tipos de planes. El plan basic, el pro y el premium.</p>
+		<p>En el Basic ofrecemos 4h de música, la posibilidad de cambiar el fondo de tu perfil, y saber quien te ha puntuado.</p>
+		<p>En el plan Pro ofrecemos 6h de música, estadísticas avanzadas y las mismas características que el Basic.</p>
+		<p>Y por último en el premium, música ilimitada, podrás promocionarte, vender tus canciones y todas las demás prestaciones </p>
+		<p>El método de pago es mediante Paypal</p>
+	</div>
+</div>
+{% endblock perfil %}
+
+
+{% block perfil_sidebar %}
+<div id="sidebar">
+	<h3>Manual</h3>
+	<a class="lista-sidebar active" data-pagina="1">Subir una canción</a>
+	<a class="lista-sidebar" data-pagina="2">Canciones</a>
+	<a class="lista-sidebar" data-pagina="3">Perfil</a>
+	<a class="lista-sidebar" data-pagina="4">Recomendados</a>
+	<a class="lista-sidebar" data-pagina="5">Publicidad</a>
+	<a class="lista-sidebar" data-pagina="6">Mensajes privados</a>
+	<a class="lista-sidebar" data-pagina="7">Listas de reproducción</a>
+	<a class="lista-sidebar" data-pagina="8">Descubre</a>
+	<a class="lista-sidebar" data-pagina="9">Ranking</a>
+	<a class="lista-sidebar" data-pagina="10">Notificaciones</a>
+	<a class="lista-sidebar" data-pagina="11">Editar perfil</a>
+	<a class="lista-sidebar" data-pagina="12">Privacidad</a>
+	<a class="lista-sidebar" data-pagina="13">Premium</a>
+</div>
+{% endblock perfil_sidebar %}
+
+
+{% block scripts %}
+    <script type="text/javascript">
+        $('.faq .lista-sidebar').on('click', paginaFAQ);
+        function paginaFAQ(){
+        	$(".faq .lista-sidebar, .pagina-faq").removeClass("active");
+        	$(this).addClass("active");
+        	$("#pagina-"+$(this).data("pagina")).addClass("active");
+        }
+    </script>
+{% endblock scripts %}

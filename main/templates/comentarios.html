@@ -1,0 +1,16 @@
+{% load main_extras %}
+{% load staticfiles %}
+
+{% for comentario in comentarios %}
+	<div class="media">
+     	<a class="pull-left" href="/perfil/{{comentario.usuario.slug }}">
+        	<img class="media-object" style="width: 64px; height: 64px;" src="{% static 'fotos_perfil/' %}{{comentario.usuario.imagen}}">
+      	</a>
+    	<div class="media-body">
+        	<a href="/perfil/{{comentario.usuario.slug }}">{{comentario.usuario}}:</a> {{comentario.comentario}}
+        	{% if yo.id == comentario.usuario.id %}
+        		<div class="eliminar-comentario" data-id="{{comentario.id}}">&times;</div>
+        	{% endif %}
+    	</div>
+    </div>
+{% endfor %}

@@ -1,0 +1,73 @@
+{% load staticfiles %}
+
+
+<div id="nota">
+	<p>Valoración<span>{{user_info.getPuntosMedia}}</span></p>
+</div>
+<div id="estrellas">
+	<a href="#" class="estrella" data-puntos="1" title="1" style="background: url({% static 'img/star-off.png' %})"></a>
+	<a href="#" class="estrella" data-puntos="2" title="2" style="background: url({% static 'img/star-off.png' %})"></a>
+	<a href="#" class="estrella" data-puntos="3" title="3" style="background: url({% static 'img/star-off.png' %})"></a>
+	<a href="#" class="estrella" data-puntos="4" title="4" style="background: url({% static 'img/star-off.png' %})"></a>
+	<a href="#" class="estrella" data-puntos="5" title="5" style="background: url({% static 'img/star-off.png' %})"></a>
+	<a href="#" class="estrella" data-puntos="6" title="6" style="background: url({% static 'img/star-off.png' %})"></a>
+	<a href="#" class="estrella" data-puntos="7" title="7" style="background: url({% static 'img/star-off.png' %})"></a>
+	<a href="#" class="estrella" data-puntos="8" title="8" style="background: url({% static 'img/star-off.png' %})"></a>
+	<a href="#" class="estrella" data-puntos="9" title="9" style="background: url({% static 'img/star-off.png' %})"></a>
+	<a href="#" class="estrella" data-puntos="10" title="10" style="background: url({% static 'img/star-off.png' %})"></a>
+</div>
+
+<div id="estadisticas">
+	<h3>Estadísticas</h3>
+	<div class="accordion" id="acordeon">
+		<!-- REPRODUCCIONES -->
+			<div class="accordion-group">
+				<div class="accordion-heading">
+  				<a class="accordion-toggle" data-toggle="collapse" data-parent="#acordeon" href="#reproducciones">Reproducciones<span>{{user_info.getReproducciones}}</span></a>
+			</div>
+			<div id="reproducciones" class="accordion-body collapse">
+  				<div class="accordion-inner">
+					<p>Hoy: <span>{{user_info.getReproduccionesHoy}}</span></p>
+					<p>Mensuales: <span>{{user_info.getReproduccionesMes}}</span></p>
+  				</div>
+			</div>
+		</div>
+		<!-- VOTOS -->
+		<div class="accordion-group">
+				<div class="accordion-heading">
+  				<a class="accordion-toggle" data-toggle="collapse" data-parent="#acordeon" href="#votaciones">Puntuación<span>{{user_info.getPuntos}}</span></a>
+			</div>
+			<div id="votaciones" class="accordion-body collapse">
+  				<div class="accordion-inner">
+						<p>Hoy: <span>{{user_info.getPuntosHoy}}</span></p>
+						<p>Mensuales: <span>{{user_info.getPuntosMes}}</span></p>
+						<p>Media: <span>{{user_info.getPuntosMedia}}</span></p>
+  				</div>
+			</div>
+		</div>
+		<!-- VISITAS -->
+		<div class="accordion-group">
+				<div class="accordion-heading">
+  				<a class="accordion-toggle" data-toggle="collapse" data-parent="#acordeon" href="#visitas">Visitas<span>{{user_info.getVisitas}}</span></a>
+			</div>
+			<div id="visitas" class="accordion-body collapse">
+  				<div class="accordion-inner">
+						<p>Hoy: <span>{{user_info.getVisitasHoy}}</span></p>
+						<p>Mensuales: <span>{{user_info.getVisitasMes}}</span></p>
+  				</div>
+			</div>
+		</div>
+		<!-- LIKES -->
+		<div class="accordion-group">
+				<div class="accordion-heading">
+  				<a class="accordion-toggle" data-toggle="collapse" data-parent="#acordeon" href="#likes">Likes<span>{{user_info.getLikes}}</span></a>
+			</div>
+			<div id="likes" class="accordion-body collapse">
+  				<div class="accordion-inner">
+						<p>Hoy: <span>{{user_info.getLikesHoy}}</span></p>
+						<p>Mensuales: <span>{{user_info.getLikesMes}}</span></p>
+  				</div>
+			</div>
+		</div>
+	</div>
+</div>

@@ -1,0 +1,10 @@
+{% load staticfiles %}
+
+{% for amigo in amigos %}
+	<div class="amigo">
+		<h4><a href="/perfil/{{amigo.slug}}">{{amigo.nombre}}</a></h4>
+		<a href="/perfil/{{amigo.slug}}" class="thumbnail">
+			<img src="{% static 'fotos_perfil/' %}{{ amigo.imagen}}" class="fotos-amigos" />
+		</a>
+	</div>
+{% endfor %}

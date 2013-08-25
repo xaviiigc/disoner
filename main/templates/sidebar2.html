@@ -1,0 +1,26 @@
+{% load staticfiles %}
+
+<div id="perfiles-recomendados">
+	<h4> Recomendados </h4>
+	{% for r in recomendaciones%}
+		<div class="perfil-recomendado">
+			<a href="/perfil/{{r.slug}}/"><img src="http://disoner.com/static/fotos_perfil/{{r.imagen}}" /></a>
+			<a href="/perfil/{{r.slug}}/" class="nombre">{{r.nombre}}</a>
+			<a href="http://disoner.com/agregar/{{r.slug}}" class="btn btn-small btn-primary">Seguir</a>
+		</div>
+
+	{% empty %}
+	<div class="alert alert-info">
+    	<p>No hay recomendaciones.</p>
+    </div>
+	{% endfor %}
+</div>
+<div class="publicidad">
+	<h4>Publicidad</h4>
+	<img src="https://i1.sndcdn.com/avatars-000033183448-d0cr0r-t200x200.jpg?44f906c" />
+</div>
+<div class="links-footer">
+	<a href="/premium/">Premium</a> |
+	<a href="/aviso-legal/">Aviso legal</a>  |
+	<a href="/politica-privacidad/">Política de privacidad</a>
+</div>

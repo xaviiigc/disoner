@@ -1,0 +1,115 @@
+{% extends "base-secundarias.html" %}
+{% load staticfiles %}
+{% block titulo %}Premium - Disoner{% endblock titulo %}
+{% block clasebody %}premium{% endblock clasebody %}
+
+{% block contenido %}
+
+ 	<h2> Razones para hacerte premium </h2>
+	<div class="razon">
+		<p>Más almacenamiento </p>
+		<img src="/static/img/razones/razon1.jpg" />
+	</div>
+	<div class="razon">
+		<p>Cambia tu fondo de pantalla</p>
+		<img src="/static/img/razones/razon2.jpg" />
+	</div>
+	<div class="razon">
+		<p>Estadísticas avanzadas</p>
+		<img src="/static/img/razones/razon3.jpg" />
+	</div>
+	<div class="razon">
+		<p>Promocionate</p>
+		<img src="/static/img/razones/razon4.jpg" />
+	</div>
+	<div class="razon">
+		<p>Vende tus canciones</p>
+		<img src="/static/img/razones/razon5.jpg" />
+	</div>
+	<div class="razon">
+		<p>Sin publicidad</p>
+		<img src="/static/img/razones/razon6.jpg" />
+	</div>
+	<div class="razon">
+		<p>Mira quien te ha puntuado</p>
+		<img src="/static/img/razones/razon7.jpg" />
+	</div>
+	<div class="razon">
+		<p>Gana más seguidores </p>
+		<img src="/static/img/razones/razon8.jpg" />
+	</div>
+
+	<h3>¡Escoge tu plan!</h3>
+
+	<div id="price-tables">
+		<div class="price-table premium-basic">
+			<h4>Basic</h4>
+			<ul>
+				<li>4h de música </li>
+				<li>Cambia tu fondo</li>
+				<li>Mira quien te ha puntuado</li>
+			</ul>
+			<p>20€<span> al año</span></p> <!-- 20 año -->
+			<form action="https://sandbox.paypal.com/cgi-bin/webscr" method="post" target="_blank">
+				<input type="hidden" name="cmd" value="_xclick">
+				<input type="hidden" name="business" value="info-facilitator@disoner.com">
+				<input type="hidden" name="undefined_quantity" value="1">
+				<input type="hidden" name="item_name" value="Basic">
+				<input type="hidden" name="item_number" value="2">
+				<input type="hidden" name="amount" value="1.2">
+				<input type="hidden" name="custom" value="{{yo.email}}">
+				<input type="hidden" name="return" value="http://disoner.com/pago-exito">
+				<input type="hidden" name="cancel_return" value="http://disoner.com/pago-cancelado">
+				<input type="hidden" name="notify_url" value="http://disoner.com/ipn/paypal/disoner/15/">
+				<input type="submit" name="submit" class="btn btn-primary" value="Suscribirse">
+			</form>
+		</div>
+		<div class="price-table premium-pro">
+			<h4>Pro</h4>
+			<ul>
+				<li>6h de música </li>
+				<li>Estadísticas avanzadas</li>
+				<li>Lo del "Basic"</li>
+			</ul>
+			<p>50€<span> al año</span></p> <!-- 50 año -->
+			<form action="https://sandbox.paypal.com/cgi-bin/webscr" method="post" target="_blank">
+				<input type="hidden" name="cmd" value="_xclick">
+				<input type="hidden" name="business" value="info-facilitator@disoner.com">
+				<input type="hidden" name="undefined_quantity" value="1">
+				<input type="hidden" name="item_name" value="Pro">
+				<input type="hidden" name="item_number" value="3">
+				<input type="hidden" name="amount" value="1.5">
+				<input type="hidden" name="custom" value="{{yo.email}}">
+				<input type="hidden" name="return" value="http://disoner.com/pago-exito">
+				<input type="hidden" name="cancel_return" value="http://disoner.com/pago-cancelado">
+				<input type="hidden" name="notify_url" value="http://disoner.com/ipn/paypal/disoner/15/">
+				<input type="submit" name="submit" class="btn btn-primary" value="Suscribirse">
+			</form>
+		</div>
+		<div class="price-table premium-premium">
+			<h4>Premium</h4>
+			<ul>
+				<li>Música ilimitada</li>
+				<li>Promocionate</li>
+				<li>Vende tus canciones</li>
+				<li>Lo del "Pro"</li>
+			</ul>
+			<p>90€<span> al año</span></p> <!-- 90 año -->
+			<form action="https://sandbox.paypal.com/cgi-bin/webscr" method="post" target="_blank">
+				<input type="hidden" name="cmd" value="_xclick">
+				<input type="hidden" name="business" value="info-facilitator@disoner.com">
+				<input type="hidden" name="undefined_quantity" value="1">
+				<input type="hidden" name="item_name" value="Premium">
+				<input type="hidden" name="item_number" value="4">
+				<input type="hidden" name="amount" value="1.9">
+				<input type="hidden" name="currency_code" value="EUR" >
+				<input type="hidden" name="custom" value="{{yo.email}}">
+				<input type="hidden" name="return" value="http://disoner.com/pago-exito">
+				<input type="hidden" name="cancel_return" value="http://disoner.com/pago-cancelado">
+				<input type="hidden" name="notify_url" value="http://disoner.com/ipn/paypal/disoner/15/">
+				<input type="submit" name="submit" class="btn btn-primary" value="Suscribirse">
+			</form>
+		</div>
+	</div>
+
+{% endblock contenido %}

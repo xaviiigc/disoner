@@ -1,0 +1,97 @@
+{% extends "base.html" %}
+{% load main_extras %}
+{% load staticfiles %}
+
+{% block titulo %} Listas de reproducción - Disoner {% endblock titulo %}
+{% block bodyclass %}listas-reproduccion{% endblock bodyclass %}
+
+{% block cabecera %}{% endblock cabecera %}
+
+
+
+{% block perfil %}
+<div id="perfil">
+
+	{% if subpagina == 2 %}
+
+		{% for esta in lista %}
+		<div class="lista">
+			<h2>{{esta.nombre}}</h2>
+			<form id="form-editar-lista" method="POST">{% csrf_token %}
+				<input type="text" name="nombre-lista" id="nombre-lista" value="{{esta.nombre}}" />
+				<input type="hidden" name="canciones" id="eliminar-canciones" value="" />
+				<div id="botones-control-listas">
+					<input type="cancel" class="btn btn-small" value="Cancelar" id="cancelar-lista"/>
+					<input type="submit" class="btn btn-primary btn-small" value="Guardar" id="guardar-lista"/>
+					<a class="btn btn-small" id="editar-lista"><i class="icon-pencil"></i></a>
+					<a class="btn btn-small" id="borrar-lista" data-id="{{esta.id}}"><i class="icon-trash"></i></a>
+				</div>
+				<ul class="playlist">
+				{% for li_can in listas_cancion %}
+					{% include "reproductor-listas.html" %}
+				{% endfor %}
+				</ul>
+			</form>
+		</div>
+		{% empty %}
+			<div class="alert alert-error">
+		    	<p>No tienes canciones en esta lista.</p>
+		    </div>
+		{% endfor %}
+
+	{% endif %}
+
+	{% if subpagina == 1 %}
+		{% for lista in listas %}
+			<div class="lista-preview-container enlace {% if forloop.last %}last{% endif %}
+				{% if forloop.first %}first{% endif %}" data-href="http://disoner.com/listas-reproduccion/{{lista.id}}">
+				<h6>{{lista.nombre}}</h6>
+				<div class="lista-preview {% numCancionesLista lista listas_cancion %}">
+					{% for li_can in listas_cancion %}
+						{% if lista.id == li_can.lista.id %}
+							<img src="http://disoner.com/static/fotos_canciones/{{li_can.cancion.imagen}}"/>
+						{% endif %}
+						
+						{% noHayCanciones lista listas_cancion %}
+						
+					{% endfor %}
+				</div>
+			</div>
+		{% empty %}
+			<div class="alert alert-error">
+		    	<p>No tienes listas de reproducción.</p>
+		    </div>
+		{% endfor %}
+	{% endif %}
+
+	    <div id="celimcan" class="modal hide fade">
+		    <div class="modal-header">
+			    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+			    <h3>¡Atención!</h3>
+		    </div>
+		    <div class="modal-body">
+		    	<p>Vas a eliminar toda tu lista de reproducción. ¿Seguro que deseas hacerlo?</p>
+		    </div>
+		    <div class="modal-footer">
+			    <a href="#" class="btn" data-dismiss="modal" aria-hidden="true">No</a>
+			    <a href="#" class="btn btn-primary">Si</a>
+		    </div>
+	    </div>
+	
+</div>
+{% endblock perfil %}
+
+
+{% block perfil_sidebar %}
+<div id="sidebar">
+	<h3>Tus listas</h3>
+	{% for lista in listas %}
+		<a href="http://disoner.com/listas-reproduccion/{{lista.id}}" class="lista-sidebar">{{lista.nombre}}</a>
+	{% empty %}
+		<div class="alert alert-error">
+	    	<p>No tienes listas de reproducción.</p>
+	    </div>
+	{% endfor %}
+</div>
+{% endblock perfil_sidebar %}
+

@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+
+
+{% block titulo %} Buscar - Disoner {% endblock titulo %}
+{% block bodyclass %}inicio{% endblock bodyclass %}
+
+
+{% block perfil %}
+<div id="perfil">
+	<form action="/buscar/" method="POST" id="formulario-busqueda-pagina">{% csrf_token %}
+        <input type="text" autocomplete="off" placeholder="Buscar..." name="keyword">
+        <input type="submit" class="btn" value="Buscar" />
+    </form>
+	{% if keyword != '-1' %}
+		<div id="pagina-buscar-usuarios">
+			<h3> Usuarios </h3>
+			{% for u in usuarios %}
+			<div class="resultado-busqueda">
+		        <a href="http://disoner.com/perfil/{{u.slug}}"><img src="{% static 'fotos_perfil/' %}{{u.imagen}}" /></a>
+		        <a href="http://disoner.com/perfil/{{u.slug}}">{{u.nombre}}</a>
+		        <p>{{u.biografia}}</p>
+			</div>
+			{% empty %}
+				<p> No hay usuarios con estos terminos</p>
+		    {% endfor %}
+		</div>
+	    <div id="pagina-buscar-canciones">
+			<h3 class="buscar-h3"> Canciones </h3>
+			{% for cancion in canciones %}
+			<ul class="playlist">
+				{% include "reproductor.html" %}
+			</ul>
+			{% empty %}
+				<p> No hay canciones con estos terminos</p>
+		    {% endfor %}
+		</div>
+	{% endif%}
+</div>
+{% endblock perfil %}
+
+
+{% block perfil_sidebar %}
+<div id="sidebar">
+	{% include "sidebar2.html" %}
+</div>
+{% endblock perfil_sidebar %}

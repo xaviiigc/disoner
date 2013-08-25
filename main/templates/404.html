@@ -1,0 +1,12 @@
+<html>
+<head>
+	<title>Error 404</title>
+	<link rel="stylesheet" href="http://disoner.com/static/css/style.css" />
+</head>
+<body>
+	<form method="post" enctype="multipart/form-data"> {% csrf_token %}
+         <input type="file" name="file" />
+         <input type="submit" value="Upload" />
+     </form>
+</body>
+</html>

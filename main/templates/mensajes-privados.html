@@ -1,0 +1,27 @@
+{% load staticfiles %}
+
+<div id="mensajes-recibidos">
+	{% for mensaje in mensajes %}
+		<a href="#" class="media mensaje-privado" data-conversacion="{{mensaje.getIdUsuario}}">
+		    <img class="media-object pull-left" style="width: 64px; height: 64px;" src="{% static 'fotos_perfil/' %}{{mensaje.getFotoUsuario}}">
+		    <div class="media-body">
+		        <strong>{{mensaje.getNombreUsuario}}</strong>: <br /> {{mensaje.mensaje}}
+		    </div>
+		</a>
+	{% empty%}
+		<p>No tienes mensajes</p>
+	{% endfor %}
+</div>
+
+<div id="mensajes-enviados">
+	{% for mensaje in mensajes_enviados %}
+		<a href="#" class="media mensaje-privado" data-conversacion="{{mensaje.destinatario.id}}">
+		    <img class="media-object pull-left" style="width: 64px; height: 64px;" src="{% static 'fotos_perfil/' %}{{mensaje.destinatario.imagen}}">
+		    <div class="media-body">
+		        <strong>{{mensaje.destinatario.nombre}}</strong>: <br /> {{mensaje.mensaje}}
+		    </div>
+		</a>
+	{% empty%}
+		<p>No has enviado mensajes</p>
+	{% endfor %}
+</div>

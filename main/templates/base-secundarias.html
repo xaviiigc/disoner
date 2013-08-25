@@ -1,0 +1,40 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html class="no-js">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>{% block titulo %}{% endblock titulo %}</title>
+       <meta name="description" content="Disoner - Tu red músical">
+        <meta name="viewport" content="width=device-width">
+
+        <link rel="icon" type="image/ico" href="{% static 'favicon.ico' %}" />
+
+        <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}" />
+        <link rel="stylesheet" type="text/css" href="{% static 'css/plugins.css' %}" />
+        <link rel='stylesheet' type='text/css' href='http://fonts.googleapis.com/css?family=Merienda+One|Open+Sans' />
+
+        <script type="text/javascript" src="{% static 'js/modernizr.js' %}"></script>
+    </head>
+    <body class="login showBG {% block clasebody %}{% endblock clasebody %}">
+
+        <header id="barra_superior">
+            <a href="/"><img src="{% static 'img/logo4.png' %}" id = "logo" /></a>
+    		<a href="/" class="btn btn-primary" id="btn_registrar">Volver</a>
+        </header>
+
+    	<div id="perfil">
+    		{% block contenido %}{% endblock contenido %}
+		</div>
+
+        <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
+        <script type="text/javascript" src="{% static 'js/detect-browser.js' %}"></script>
+        <script type="text/javascript" src="{% static 'js/cookies-ajax.js' %}"></script>
+        <script type="text/javascript" src="{% static 'js/scripts.js' %}"></script>
+
+        <script type="text/javascript">
+            $("body").backstretch([ "{% static 'img/fondo2.jpg' %}" ], {duration: 0, fade: 0});
+        </script>
+    
+    </body>
+</html>

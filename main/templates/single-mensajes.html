@@ -1,0 +1,10 @@
+{% load staticfiles %}
+
+{% for mensaje in mensajes %}
+	<div class="media">
+	    <img class="media-object pull-left" style="width: 64px; height: 64px;" src="{% static 'fotos_perfil/' %}{{mensaje.getFotoUsuario}}">
+	    <div class="media-body">
+	        <strong>{{mensaje.getNombreUsuario}}</strong>: <br /> {{mensaje.mensaje}}
+	    </div>
+	</div>
+{% endfor %}

@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+{% load main_extras %}
+{% load staticfiles %}
+
+{% block titulo %} Bienvenido - Disoner {% endblock titulo %}
+{% block bodyclass %}bienvenido{% endblock bodyclass %}
+
+
+{% block perfil %}
+	<div id="perfil">
+		<h2>Elige tus estilos de música favoritos</h2>
+		<h5>Cuanto más preciso seas más provecho le sacarás a esta plataforma</h5>
+		<span id="gustos-restantes"></span>
+		<ul id="etiquetas">{{lista_tags|safe}}</ul>
+		<a href="#" id="enviar-bienvenida" class="btn btn-primary">Siguente</a>
+		<form method="POST" id="form-bienvenida">{% csrf_token %}
+			<input type="hidden" value="" id="gustos_array" name="gustos_array">
+		</form>
+	</div>
+{% endblock perfil %}
+
+{% block scripts %}
+<script>
+
+
+
+	
+
+
+</script>
+{% endblock scripts%}

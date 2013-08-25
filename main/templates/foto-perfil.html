@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+
+{% block titulo %} Editar Perfil - Disoner {% endblock titulo %}
+{% block bodyclass %}editar-perfil{% endblock bodyclass %}
+
+{% block cabecera %}{% endblock cabecera %}
+
+
+{% block perfil_cabecera %}{% endblock perfil_cabecera %}
+
+{% block perfil %}
+<div id="perfil">
+	<h1>Upload filee</h1>
+	<form enctype="multipart/form-data" method="post" action="/cambiar-foto/">
+		   {% csrf_token %}   
+		   	<table>
+		       {{form.as_table}}
+		    </table>
+		    <input type="submit" value="Escoger foto" class="btn btn-primary"/>
+		</form>
+</div>
+{% endblock perfil %}
+
+{% block perfil_sidebar %}
+<div id="sidebar"></div>
+{% endblock perfil_sidebar %}

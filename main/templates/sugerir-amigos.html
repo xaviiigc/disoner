@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+{% load main_extras %}
+{% load staticfiles %}
+
+{% block titulo %} Bienvenido - Disoner {% endblock titulo %}
+{% block bodyclass %}bienvenido{% endblock bodyclass %}
+
+
+{% block perfil %}
+	<div id="perfil">
+		<h2>Estás son algunos perfiles que podria interesarte seguir</h2>
+		<h5>Los perfiles tienen gustos similares a los tuyos</h5>
+		<div id="contenedor-bienvenido">
+			{% for artista in artistas %}
+				<div class="perfil-recomendado">
+					<a href="http://disoner.com/perfil/{{artista.slug}}" class="nombre">{{artista.nombre}}</a>
+					<div class="overlay"></div>
+					<a href="http://disoner.com/agregar/{{artista.slug}}" class="btn btn-small btn-primary">Seguir</a>
+					<a href="http://disoner.com/perfil/{{artista.slug}}">
+						<img src="http://disoner.com/static/fotos_perfil/{{artista.imagen}}" />
+					</a>
+				</div>
+			{% empty %}
+				<div class="alert alert-error">
+					<p>No hay sugerencias, lo sentimos. Explora la plataforma descubrir nuevos artistas.</p>
+				</div>
+			{% endfor %}
+		</div>
+	</div>
+{% endblock perfil %}
+
+{% block scripts %}
+<script>
+
+
+
+
+</script>
+{% endblock scripts%}

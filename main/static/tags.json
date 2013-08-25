@@ -1,0 +1,94 @@
+{
+"array": [
+  {"id": "1",
+  "name": "Alternative",
+  "hijo": [
+    "Alternative",
+    "Ambient Alternative",
+    "Folk Punk",
+    "Fringe",
+    "Indie",
+    "Experimental"
+  ]
+},
+{
+  "id": "2",
+  "name": "Clásica",
+  "hijo": [
+    "Clásica",
+    "Banda sonora",
+    "Piano",
+    "Percusión",
+    "Guitarra",
+    "Vocal",
+    "Orquesta"
+  ]
+},
+{
+  "id": "3",
+  "name": "Country",
+  "hijo": [
+    "Country",
+    "Country Blues",
+    "Alternative Country",
+    "Country General"
+  ]
+},
+{
+  "id": "4",
+  "name": "Rock",
+  "hijo": [
+    "Rock",
+    "Black metal",
+    "Punk",
+    "Industrial Hardcore",
+    "Industrial Techno"
+  ]
+},
+{
+  "id": "5",
+  "name": "Pop",
+  "hijo": [
+    "Pop",
+    "Acustica",
+    "Baladas",
+    "Indie pop",
+    "Pop rock"
+  ]
+},
+{
+  "id": "6",
+  "name": "Música Urbana",
+  "hijo": [
+    "Rap",
+    "Hip-Hop",
+    "Reggaeton",
+    "Underground",
+    "Instrumental"
+  ]
+},
+{
+  "id": "7",
+  "name": "Electrónica",
+  "hijo": [
+    "Minimal",
+    "Hardcore",
+    "Electro House",
+    "Progressive House",
+    "Electrónica",
+    "Newstyle",
+    "Frenchcore"
+  ]
+},
+{
+  "id": "8",
+  "name": "Metal",
+  "hijo": [
+    "Heavy Metal",
+    "Metalcore",
+    "Death Metal",
+    "Post Hardcore"
+  ]
+}
+]
+}

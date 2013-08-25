@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+
+{% block titulo %} Inicio - Disoner {% endblock titulo %}
+{% block bodyclass %}inicio{% endblock bodyclass %}
+
+{% block cabecera %}{% endblock cabecera %}
+
+
+{% block perfil_cabecera %}{% endblock perfil_cabecera %}
+
+{% block perfil %}
+<div id="perfil">
+	<ul class="playlist">
+		{% for cancion in canciones %}
+			{% include "reproductor.html" %}
+		{% empty %}
+			<div class="alert alert-error">
+		    	<p>Parece que tus amigos estan algo inactivos. Sigue a más artistas para disfrutar de esta plataforma.</p>
+		    </div>
+		{% endfor %}
+	</ul>
+</div>
+{% endblock perfil %}
+
+
+{% block perfil_sidebar %}
+<div id="sidebar">
+	{% include "sidebar2.html" %}
+</div>
+{% endblock perfil_sidebar %}

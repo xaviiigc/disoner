@@ -1,0 +1,19 @@
+{% load main_extras %}
+{% load staticfiles %}
+
+<li data-id="{{li_can.cancion.id}}">
+	<span href="#" data-id="{{li_can.cancion.id}}" class="eliminar-cancion">&times;</span>
+	<img src="http://disoner.com/static/fotos_canciones/{{li_can.cancion.imagen}}" data-href="http://disoner.com/cancion/{{li_can.cancion.id}}" class="enlace"/>
+	<span data-href="http://disoner.com/perfil/{{li_can.cancion.autor.slug}}" class="enlace">{{li_can.cancion.autor}}</span>
+	<a href="http://disoner.com/static/canciones/{{li_can.cancion.cancion}}" title="{{li_can.cancion.nombre}}" class="link-soundmanager">{{li_can.cancion.nombre}}</a>
+	<div class="controls control-pega">
+	   <div class="statusbar">
+	    <div class="loading" style="width: 100%;"></div>
+	    <div class="position" style="width: 0%;"></div>
+	   </div>
+	 </div>
+
+	<div class="timing2">
+		<span class="sm2_total">{% secondsToTime li_can.cancion.segundos %}</span>
+	</div>
+</li>

@@ -1,0 +1,36 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html class="no-js">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>Login - Disoner</title>
+        <meta name="description" content="Disoner - Tu red músical">
+        <meta name="viewport" content="width=device-width">
+
+        <link rel="icon" type="image/ico" href="{% static 'favicon.ico' %}" />
+
+        <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}" />
+        <link rel="stylesheet" type="text/css" href="{% static 'css/plugins.css' %}" />
+        <link href='http://fonts.googleapis.com/css?family=Merienda+One' rel='stylesheet' type='text/css'>
+        <script type="text/javascript" src="{% static 'js/modernizr.js' %}"></script>
+    </head>
+    <body class="login showBG {% block bodyclass %}{% endblock bodyclass %}">
+    	<script type="text/javascript" src="{% static 'js/detect-browser.js' %}"></script>
+        {% include "actualizar-navegador.html" %}
+
+        <header id="barra_superior">
+            <a href="/"><img src="{% static 'img/logo4.png' %}" id = "logo" /></a>
+            <a class="btn btn-primary" id="btn_registrar">Registrarme</a>
+    		<a class="btn btn-primary" id="btn_login">Entrar</a>
+        </header>
+        
+    	<div id="wrap" class="row-fluid">
+			{% block contenido %}{% endblock contenido%}
+		</div>
+
+        <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
+        <script type="text/javascript" src="{% static 'js/scripts-login.js' %}"></script>
+    
+    </body>
+</html>

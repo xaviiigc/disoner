@@ -1,0 +1,10 @@
+{% load staticfiles %}
+
+{% for u in usuarios %}
+    <a data-id="{{u.id}}">
+        <img src="{% static 'fotos_perfil/' %}{{u.imagen}}" />
+        <span>{{u.nombre}}</span>
+    </a>
+{% empty %}
+	<a> No hay usuarios con estos terminos</a>
+{% endfor %}

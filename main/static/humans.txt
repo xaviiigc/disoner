@@ -1,0 +1,22 @@
+/* TEAM */
+
+	Web designer and Developer: Marcos Aguayo Mora
+	Email: marcos@aguayo.es
+	Google+: https://plus.google.com/u/0/112135506027187027231/
+	LinkedIn: http://www.linkedin.com/pub/marcos-aguayo/42/671/684
+	Twitter: https://github.com/aguayomarcos
+	Github: https://github.com/marcosaguayo
+	From: Barcelona, Spain
+
+	Web designer and Developer: Xavi Güell
+	Email: 
+	From: Barcelona, Spain
+
+
+/* SITE */
+
+	Last updated: 2013/04/04
+	Language: Spanish
+	Doctype: HTML5
+	IDE: Sublime Text 2
+	Technologies: jQuery, Bootstrap, Django, Alertify, MagicSuggest

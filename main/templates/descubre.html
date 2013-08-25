@@ -1,0 +1,56 @@
+{% extends "base.html" %}
+
+{% block titulo %} Descubre - Disoner {% endblock titulo %}
+{% block bodyclass %}descubre{% endblock bodyclass %}
+
+{% block cabecera %}{% endblock cabecera %}
+
+
+
+{% block perfil %}
+<div id="perfil">
+	{% if subpagina == 2 %}
+		<ul class="playlist">
+			{% for cancion in canciones_tag %}
+				{% include "reproductor.html" %}
+			{% empty %}
+				<div class="alert alert-error">
+			    	<p>Aun no hay canciones de este genero. Animate y sube tu la primera! </p>
+			    </div>
+			{% endfor %}
+		</ul>
+	{% else %}
+		<ul class="playlist">
+			{% for cancion in canciones_recomendadas %}
+				{% include "reproductor.html" %}
+			{% endfor %}
+			{% for cancion in canciones_parecidas %}
+				{% include "reproductor.html" %}
+			{% endfor %}
+			{% for cancion in top_canciones %}
+				{% include "reproductor.html" %}
+			{% endfor %}
+		</ul>
+	{% endif %}
+</div>
+{% endblock perfil %}
+
+
+{% block perfil_sidebar %}
+<div id="sidebar">
+	<div class="accordion acordeon-descubre" id="acordeon">
+		<h3>Géneros</h3>
+		{{sidebar_tags|safe}}
+	</div>
+</div>
+{% endblock perfil_sidebar %}
+
+
+{% block scripts %}
+    <script type="text/javascript">
+        var actual = $(".accordion-inner a[data-genero='" + $('#genero-actual').val() + "']");
+        actual.addClass("active");
+        actual.parent().parent().addClass("in");
+        console.log(actual);
+    </script>
+{% endblock scripts %}

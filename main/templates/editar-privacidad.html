@@ -1,0 +1,57 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+{% block titulo %} Editar privacidad - Disoner {% endblock titulo %}
+{% block bodyclass %}editar-perfil{% endblock bodyclass %}
+
+
+{% block perfil_cabecera %}
+	{% include "cabecera.html" %}
+{% endblock perfil_cabecera %}
+
+{% block perfil %}
+    <div id="perfil">
+    	<form id="formulario-editarPrivacidad" method="post" class="form-horizontal form-responsive" enctype="multipart/form-data">{% csrf_token %}
+    		<div id="resultados"></div>
+            <h3>Configuración de emails</h3>
+            <div class="field">
+                <label>Cuando alguien haga un comentario de una de tus canciones:</label>
+                Si: <input type="radio" name="comentarios" value="1" {% if privacidad.comentario == 1 %}checked{% endif %}>
+                No: <input type="radio" name="comentarios" value="0" {% if privacidad.comentario == 0 %}checked{% endif %}>
+            </div>
+    		<div class="field">
+                <label>Cuando a alguien le guste alguna de tus canciones:</label>
+                Si: <input type="radio" name="likes" value="1" {% if privacidad.likes == 1 %}checked{% endif %}>
+                No: <input type="radio" name="likes" value="0" {% if privacidad.likes == 0 %}checked{% endif %}>
+            </div>
+            <div class="field">
+                <label>Cuando te envien un nuevo mensajes privado:</label>
+                Si: <input type="radio" name="privados" value="1" {% if privacidad.mensaje == 1 %}checked{% endif %}>
+                No: <input type="radio" name="privados" value="0" {% if privacidad.mensaje == 0 %}checked{% endif %}>
+            </div>
+            <div class="field">
+                <label>Cuando consigas un nuevo fan:</label>
+                Si: <input type="radio" name="amistad" value="1" {% if privacidad.amistad == 1 %}checked{% endif %}>
+                No: <input type="radio" name="amistad" value="0" {% if privacidad.amistad == 0 %}checked{% endif %}>
+            </div>
+            <div class="field">
+                 <label>Cuando alguien comparta una de tus canciones:</label>
+                Si: <input type="radio" name="compartir" value="1" {% if privacidad.compartir == 1 %}checked{% endif %}>
+                No: <input type="radio" name="compartir" value="0" {% if privacidad.compartir == 0 %}checked{% endif %}>
+            </div>
+    		<input type="submit" value="Guardar" class="btn btn-primary">
+    	</form>	
+    </div>
+{% endblock perfil %}
+
+{% block perfil_sidebar %}
+    <div id="sidebar">
+    	{% include "sidebar.html" %}
+    </div>
+{% endblock perfil_sidebar %}
+
+{% block scripts %}
+    <script type="text/javascript">
+        pagina_base = false;
+        $("body").backstretch([ "{% static 'fotos_perfil/' %}{{user_info.fondo}}" ], {duration: 0, fade: 0});
+    </script>
+{% endblock scripts %}

@@ -1,0 +1,72 @@
+{% extends "base.html" %}
+
+{% block titulo %} Ranking - Disoner {% endblock titulo %}
+{% block bodyclass %}ranking{% endblock bodyclass %}
+
+{% block perfil_sidebar %}
+<div id="sidebar">
+	<div class="accordion acordeon-descubre" id="acordeon">
+		<h3>Géneros</h3>
+		{{sidebar_tags|safe}}
+	</div>
+</div>
+{% endblock perfil_sidebar %}
+{% block perfil %}
+	<div id="perfil">
+		<div id="topAutores"><i class="icon icon-user"></i></div>
+		<div id="topCanciones"><i class="icon icon-music"></i></div>
+
+		<div id="ranking-canciones">
+			<h2>Top canciones {% if genero != '-1' %} <span>"{{genero}}"</span> {% endif %}</h2>
+		    <table class="table table-hover">
+			    <thead>
+				    <tr>
+					    <th class="rank-num">#</th>
+					    <th class="rank-name">Nombre</th>
+					    <th class="rank-repro">Reproducciones</th>
+					    <th class="rank-likes">Me gusta</th>
+					    <th class="rank-shared">Compartida</th>
+				    </tr>
+			    </thead>
+			    <tbody>
+			    	{% for cancion in top_canciones %}
+						<tr data-href="http://disoner.com/cancion/{{cancion.id}}" class="enlace">
+							<td class="rank-num">{{forloop.counter}}</td>
+							<td class="rank-name">{{cancion.nombre}}</td>
+							<td class="rank-repro">{{cancion.getNumReproducciones}}</td>
+							<td class="rank-likes">{{cancion.getLikes}}</td>
+							<td class="rank-shared">{{cancion.getCompartida}}</td>
+						</tr>
+					{% empty %}
+						<tr><td colspan="5" class="text-center">No hay canciones</td></tr>
+					{% endfor %}
+			    </tbody>
+		    </table>
+		</div>
+		<div id="ranking-autores">
+			<h2>Top autores {% if genero != '-1' %} <span>"{{genero}}"</span> {% endif %}</h2>
+		    <table class="table table-hover">
+			    <thead>
+				    <tr>
+					    <th class="rank-num">#</th>
+					    <th class="rank-name">Nombre</th>
+					    <th class="rank-puntos">Puntos</th>
+					    <th class="rank-visitas">Visitas</th>
+				    </tr>
+			    </thead>
+			    <tbody>
+			    	{% for usuario in top_usuarios %}
+						<tr data-href="http://disoner.com/perfil/{{usuario.slug}}" class="enlace">
+							<td class="rank-num">{{forloop.counter}}</td>
+							<td class="rank-name">{{usuario.nombre}}</td>
+							<td class="rank-puntos">{{usuario.getPuntos}}</td>
+							<td class="rank-visitas">{{usuario.getVisitas}}</td>
+						</tr>
+					{% empty %}
+						<tr><td colspan="4" class="text-center">No hay usuarios</td></tr>
+					{% endfor %}
+			    </tbody>
+		    </table>
+		</div>
+	</div>
+{% endblock perfil %}

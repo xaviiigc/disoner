@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+{% block titulo %} Perfil - Disoner {% endblock titulo %}
+{% block bodyclass %}perfil{% endblock bodyclass %}
+
+
+{% block perfil_cabecera %}
+	{% include "cabecera.html" %}
+{% endblock perfil_cabecera %}
+
+
+{% block perfil %}
+  <div id="perfil">
+    <ul class="playlist">
+  	    {% include "reproductor.html" %}
+    </ul>
+  </div>
+{% endblock perfil %}
+
+{% block perfil_sidebar %}
+  <div id="sidebar">
+    {% include "sidebar.html" %}
+  </div>
+{% endblock perfil_sidebar %}
+
+{% block scripts %}
+<script type="text/javascript">
+pagina_base = false;
+$("body").backstretch([ "{% static 'fotos_perfil/' %}{{user_info.fondo}}" ], {duration: 0, fade: 0});
+</script>
+{% endblock scripts %}

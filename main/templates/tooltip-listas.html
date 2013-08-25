@@ -1,0 +1,20 @@
+{% load staticfiles %}
+
+<div class="contenedor-listas">
+	<table class="table table-hover">
+		<tbody>
+		{% for lista in listas %}
+			<tr data-lista="{{lista.id}}"><td>{{lista.nombre}}</td></tr>
+		{% empty%}
+			<tr><td style="text-align: center">No tienes listas</td></tr>
+		{% endfor %}
+		</tbody>
+	</table>
+</div>
+
+<div class="input-append">
+	<form class="crear-nueva-lista" method="POST">
+	  <input class="span2 nombre-lista" type="text" name="nombre-lista" placeholder="Crear lista">
+	  <input type="submit" class="btn btn-small" value="Añadir">
+	</form>
+</div>
